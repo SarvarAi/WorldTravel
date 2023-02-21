@@ -1,0 +1,37 @@
+* {
+    font-family: 'Outfit', sans-serif;
+}
+
+.header {
+    background: linear-gradient(90.13deg, #21DA28 -1.01%, #444CFB 110.81%);
+    height: 29px;
+    font-weight: 40px;
+}
+
+.my-navbar{
+    text-decoration: none;
+    color: #9E9E9E;
+    padding: 10px;
+}
+
+.my-navbar:hover {
+    color: #747474;
+}
+
+.my-footer {
+    text-decoration: none;
+    color: #FEFEFE;
+    padding: 10px;
+}
+
+.my-footer:hover {
+    color: #BABABA;
+}
+
+
+
+.footer {
+    height: 137px;
+    background: linear-gradient(94.63deg, #21DA28 -23.99%, #444CFB 142.67%);
+    border-radius: 56px 56px 0px 0px;
+}

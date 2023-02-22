@@ -6,9 +6,19 @@ from django.views.generic import TemplateView
 
 
 class HomeView(TemplateView):
+    """
+    Home page class
+    """
     template_name = 'main/index.html'
     context = {
         'title': 'WorldTravel'
     }
+
+
+class AboutUsView(TemplateView):
+    """
+    About Us page
+    """
+    template_name = 'main/about.html'
 
 

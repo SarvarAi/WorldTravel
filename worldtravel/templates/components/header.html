@@ -1,9 +1,10 @@
+{% load static %}
 <div class="header container-fluid d-flex justify-content-center text-light p-1">
     <h6 style="font-weight: 600;">50% СКИДКА НА ВСЕ ПОЛЕТЫ</h6>
 </div>
 
 <div class="container-fluid d-flex justify-content-center mt-5">
-    <img src="static/main/image/logo_world_travel_new.png" alt="Logo" width="391px" height="75px">
+    <img src="{% static 'main/image/logo_world_travel_new.png' %}" alt="logo" width="391px" height="75px">
 </div>
 
 
@@ -13,8 +14,9 @@
         <a href="#" class="my-navbar">Войти</a>
         <a href="#" class="my-navbar">Страны</a>
         <a href="#" class="my-navbar">Обратная связь</a>
-        <a href="#" class="my-navbar">О нас</a>
+        <a href="{% url 'about' %}" class="my-navbar">О нас</a>
     </nav>
 </div>
+
 
 

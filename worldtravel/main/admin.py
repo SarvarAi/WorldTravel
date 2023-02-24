@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import EmailSubscription, InfoPages, PageCategory
+from .models import EmailSubscription, InfoPages, PageCategory, Vacancies
 
 
 # Register your models here.
@@ -18,6 +18,7 @@ class PageCategoryAdmin(admin.ModelAdmin):
     list_display_links = ['page']
 
 
+admin.site.register(Vacancies)
 admin.site.register(PageCategory, PageCategoryAdmin)
 admin.site.register(EmailSubscription, EmailSubscriptionAdmin)
 admin.site.register(InfoPages, InfoPagesAdmin)

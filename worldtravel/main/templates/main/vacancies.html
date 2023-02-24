@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block connect_statics %}
+<link rel="stylesheet" href="{% static 'main/css/vacancies.css' %}">
+{% endblock connect_statics %}
+
+
+{% block main %}
+<form class="d-flex justify-content-center mt-5" role="search" action="{% url 'search_vacancy' %}">
+    <input class="search-bar" name="search-vacancy-engine"  placeholder="Найти вакансию" aria-label="Найти вакансию">
+    <button class="search-btn" type="submit"><i class="bi bi-search"></i></button>
+</form>
+
+<div class="main-structure-vacancies">
+    {% for vacancy in vacancies %}
+    <div class="d-flex justify-content-center">
+
+        <div class="my-card-vacancy">
+            <p class="main-title-vacancy">{{ vacancy.title }}</p>
+            <p class="salary-vacancy">зарплата {{ vacancy.from_salary }} - {{ vacancy.to_salary }} UZS</p>
+            <p class="short-text-vacancy">{{ vacancy.description|truncatechars:160 }}</p>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+{% endblock main %}

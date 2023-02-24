@@ -49,3 +49,27 @@ class InfoPages(models.Model):
 
     page = models.ForeignKey(PageCategory, on_delete=models.CASCADE, verbose_name='Страница')
     information = models.TextField(verbose_name='Информация')
+
+
+class Vacancies(models.Model):
+    """
+    Information of WorldTravel's vacancies.
+    """
+
+    class Meta:
+        verbose_name = 'Вакансия'
+        verbose_name_plural = 'Вакансии'
+
+    def __str__(self):
+        return self.title
+
+    title = models.CharField(max_length=255, verbose_name='Название вакансии')
+    work_experience = models.CharField(max_length=255, verbose_name='Опыт работы')
+    from_salary = models.CharField(max_length=15, verbose_name='Зарплата от', null=True, blank=True)
+    to_salary = models.CharField(max_length=15, verbose_name='Зарплата до', null=True, blank=True)
+    from_age = models.CharField(max_length=3, verbose_name='Возраст от')
+    to_age = models.CharField(max_length=3, verbose_name='Возраст до')
+    description = models.TextField(verbose_name='Описание вакансии')
+    skills = models.CharField(max_length=255, verbose_name='Навыки')
+    education = models.TextField(verbose_name='Образование')
+    is_published = models.BooleanField(default=False, verbose_name='Опубликован')

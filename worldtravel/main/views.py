@@ -51,3 +51,12 @@ class SearchCareersView(CareersView):
         vacancies_description = Vacancies.objects.filter(description__icontains=words)
         vacancies_title = Vacancies.objects.filter(title__icontains=words)
         return vacancies_description | vacancies_title
+
+
+class EmailSubscriptionView(TemplateView):
+    template_name = 'main/email_subscription.html'
+    extra_context = {
+        'title': 'Email Подписка'
+    }
+
+

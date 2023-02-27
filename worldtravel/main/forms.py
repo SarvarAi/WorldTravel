@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
+from .models import EmailSubscription
 
 
 class SignUpForm(UserCreationForm):
@@ -70,3 +71,20 @@ class LoginForm(AuthenticationForm):
         'placeholder': 'Пароль'
     }))
 
+
+class EmailSubscriptionForm(forms.Form):
+    """
+    Form for email subscription page, where user can type his email
+    """
+    class Meta:
+        """
+        This class works with EmailSubscription model
+        and has only one field to fill email
+        """
+        model = EmailSubscription
+        fields = ('email',)
+
+    email = forms.EmailField(widget=forms.EmailInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Введите свой email'
+    }))

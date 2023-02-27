@@ -1,0 +1,13 @@
+@import url(index.css);
+@import url(vacancies.css);
+
+#email-title{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 55px;
+    line-height: 81px;
+
+    margin: 60px;
+
+    color: #9E9E9E;
+}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block connect_statics %}
+<link rel="stylesheet" href="{% static 'main/css/email_subscription.css' %}">
+{% endblock connect_statics %}
+
+{% block main %}
+<div class="d-flex justify-content-center">
+    <p id="email-title" >Email Подписка</p>
+</div>
+
+<form class="d-flex justify-content-center mt-5" role="search" action="{% url 'search_vacancy' %}">
+    <input class="search-bar" name="email-subscription"  placeholder="Введите свой email" aria-label="Найти вакансию">
+    <button class="search-btn" type="submit"><i class="bi bi-send"></i></button>
+</form>
+{% endblock %}

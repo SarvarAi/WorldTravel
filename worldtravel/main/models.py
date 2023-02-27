@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import RegexValidator
 
 
 # Create your models here.
@@ -80,15 +81,17 @@ class Help(models.Model):
     This class responsible for the help messages,
     in order to register them in database
     """
+
     class Meta:
         verbose_name = 'Помощь'
         verbose_name_plural = 'Помощи'
 
     def __str__(self):
-        return self.Name
+        return self.name
 
-    Name = models.CharField(max_length=255, verbose_name='Имя')
-    Email = models.EmailField(max_length=255, verbose_name='E-mail')
-    Problem = models.TextField(verbose_name='Описание проблемы')
-
-
+    name = models.CharField(max_length=255, verbose_name='Имя')
+    email = models.EmailField(max_length=255, verbose_name='E-mail')
+    phone_regex = RegexValidator(regex=r'^\+998\(\d{2}\)\d{7}$',
+                                 message="Номер телефона должен быть в виде +998(12)1234567")
+    phone_number = models.CharField(max_length=17, validators=[phone_regex], verbose_name='Номер телефона', blank=True)
+    problem = models.TextField(verbose_name='Описание проблемы')

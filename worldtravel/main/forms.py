@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
-from .models import EmailSubscription
+from .models import EmailSubscription, Help
 
 
 class SignUpForm(UserCreationForm):
@@ -76,6 +76,7 @@ class EmailSubscriptionForm(forms.Form):
     """
     Form for email subscription page, where user can type his email
     """
+
     class Meta:
         """
         This class works with EmailSubscription model
@@ -88,4 +89,43 @@ class EmailSubscriptionForm(forms.Form):
         'class': 'form-control',
         'placeholder': 'Введите свой email'
     }))
+
+
+class HelpForm(forms.Form):
+    """
+    Form that users fill in page Help in order to get help from administrators,
+    all his information will be registered in database
+    """
+
+    class Meta:
+        """
+        Class works with Help model
+        fields are name, email, phone_number, problem
+        """
+        model = Help
+        fields = ('name',
+                  'email',
+                  'phone_number',
+                  'problem')
+
+    name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Как к вам обращаться'
+    }))
+
+    email = forms.EmailField(widget=forms.EmailInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Ваш email'
+    }))
+
+    phone_number = forms.CharField(max_length=17, widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'placeholeder': 'Номер телефона'
+    }))
+
+    problem = forms.CharField(widget=forms.Textarea(attrs={
+        'class': 'form-control',
+        'place-holder': 'Опишите свою проблему'
+    }))
+
 

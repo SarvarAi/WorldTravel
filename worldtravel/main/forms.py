@@ -88,3 +88,4 @@ class EmailSubscriptionForm(forms.Form):
         'class': 'form-control',
         'placeholder': 'Введите свой email'
     }))
+

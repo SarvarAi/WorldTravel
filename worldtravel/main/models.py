@@ -73,3 +73,22 @@ class Vacancies(models.Model):
     skills = models.CharField(max_length=255, verbose_name='Навыки')
     education = models.TextField(verbose_name='Образование')
     is_published = models.BooleanField(default=False, verbose_name='Опубликован')
+
+
+class Help(models.Model):
+    """
+    This class responsible for the help messages,
+    in order to register them in database
+    """
+    class Meta:
+        verbose_name = 'Помощь'
+        verbose_name_plural = 'Помощи'
+
+    def __str__(self):
+        return self.Name
+
+    Name = models.CharField(max_length=255, verbose_name='Имя')
+    Email = models.EmailField(max_length=255, verbose_name='E-mail')
+    Problem = models.TextField(verbose_name='Описание проблемы')
+
+
